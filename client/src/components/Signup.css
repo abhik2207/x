@@ -1,4 +1,4 @@
-.loginPage {
+.signupPage {
     height: 100vh;
     width: 100vw;
     background-color: #000;
@@ -7,36 +7,36 @@
     position: relative;
 }
 
-.loginTop {
+.signupTop {
     background-color: #00977e;
     height: 40%;
     width: 100%;
     padding: 5vmax;
 }
 
-.loginTop > h1 {
+.signupTop > h1 {
     color: #fff;
     font-size: 1.6vmax;
 }
 
-.loginTop > h3 {
+.signupTop > h3 {
     color: #fff;
     font-size: 0.8vmax;
 }
 
-.loginBottom {
+.signupBottom {
     background-color: #141414;
     height: 60%;
     width: 100%;
 }
 
-.loginCard {
+.signupCard {
     position: absolute;
     top: 48%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 40%;
-    height: 45%;
+    height: 52%;
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0px 0px 30px #0000006b;
@@ -79,7 +79,7 @@
 }
 
 .cardLeft > button {
-    height: 15%;
+    height: 11%;
     width: 50%;
     border-radius: 50px;
     border: none;
@@ -113,7 +113,7 @@
     object-fit: contain;
 }
 
-.signupText {
+.loginText {
     color: #00977e;
     font-size: 1vmax;
     font-weight: 600;
@@ -121,7 +121,7 @@
     transition: 0.3s;
 }
 
-.signupText:hover {
+.loginText:hover {
     color: #006b59;
     cursor: pointer;
 }

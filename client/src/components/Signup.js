@@ -1,35 +1,37 @@
 import React from 'react';
-import './Login.css';
+import './Signup.css';
 import qrCode from './LoginQRcode.png';
-import loginLogo from './LoginLogo.png';
+import signupLogo from './SignupLogo.png';
 // import GoogleLogin from '@leecheuk/react-google-login';
 // import { GoogleLogin } from '@leecheuk/react-google-login';
 
-const Login = () => {
+const Signup = () => {
     return (
-        <div className='loginPage'>
-            <div className="loginTop">
+        <div className='signupPage'>
+            <div className="signupTop">
                 <h1>CONVOVERSE</h1>
                 <h3>Chat with ease!</h3>
             </div>
 
-            <div className="loginBottom">
+            <div className="signupBottom">
 
             </div>
 
-            <div className="loginCard">
+            <div className="signupCard">
                 <div className="cardLeft">
-                    <h1>LOG IN</h1>
+                    <h1>SIGN UP</h1>
                     <div className="line"></div>
                     <form action="">
                         <label htmlFor="phoneNumber">Phone Number</label> <br />
                         <input type="text" name="phoneNumber" id="phoneNumber" placeholder='989162XXXX' /><br />
+                        <label htmlFor="name">Name</label> <br />
+                        <input type="text" name="name" id="name" placeholder='George Smith' /><br />
                         <label htmlFor="password">Password</label> <br />
                         <input type="password" name="password" id="password" placeholder='password' />
                     </form>
 
-                    <button><img src={loginLogo} alt="Google logo" />Log in</button>
-                    <a href='/' className='signupText'>Not a user? Sign up</a>
+                    <button><img src={signupLogo} alt="Google logo" />Sign up</button>
+                    <a href='/' className='loginText'>Already a user? Log in</a>
                 </div>
 
                 <div className="cardRight">
@@ -40,4 +42,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Signup;

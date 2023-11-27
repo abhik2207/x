@@ -1,0 +1,121 @@
+.loginPage {
+    height: 100vh;
+    width: 100vw;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.loginTop {
+    background-color: #00977e;
+    height: 40%;
+    width: 100%;
+    padding: 5vmax;
+}
+
+.loginTop > h1 {
+    color: #fff;
+    font-size: 1.6vmax;
+}
+
+.loginTop > h3 {
+    color: #fff;
+    font-size: 0.8vmax;
+}
+
+.loginBottom {
+    background-color: #141414;
+    height: 60%;
+    width: 100%;
+}
+
+.loginCard {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 45%;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 30px #0000006b;
+    display: flex;
+    overflow: hidden;
+}
+
+.cardLeft {
+    width: 60%;
+    height: 100%;
+    background-color: #fff;
+    padding: 2.4vmax;
+}
+
+.cardLeft > h1 {
+    font-size: 2vmax;
+    font-weight: 700;
+    margin-bottom: 1vmax;
+}
+
+.cardLeft > ol > li {
+    font-size: 1vmax;
+    font-weight: 400;
+    margin-left: 1.6vmax;
+}
+
+.cardLeft > button {
+    height: 15%;
+    width: 45%;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2vmax;
+    box-shadow: 0px 0px 10px #0000004d;
+    margin-top: 2vmax;
+    font-size: 0.8vmax;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.cardLeft > button:hover {
+    cursor: grab;
+    box-shadow: 0px 0px 10px #000000c5;
+    /* background-color: #f0f0f0; */
+}
+
+.cardLeft > button:active {
+    cursor: grabbing;
+}
+
+.cardLeft > button > img {
+    height: 50%;
+    width: 20%;
+    object-fit: contain;
+}
+
+.googleButton {
+    background-color: #fff;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.2vmax;
+}
+
+.cardRight {
+    width: 40%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.cardRight > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

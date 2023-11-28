@@ -78,7 +78,7 @@
     margin-bottom: 0.5vmax;
 }
 
-.cardLeft > button {
+.submitButtom {
     height: 11%;
     width: 50%;
     border-radius: 50px;
@@ -98,16 +98,16 @@
     transition: 0.3s;
 }
 
-.cardLeft > button:hover {
+.submitButtom:hover {
     cursor: grab;
     box-shadow: 0px 0px 10px #000000c5;
 }
 
-.cardLeft > button:active {
+.submitButtom:active {
     cursor: grabbing;
 }
 
-.cardLeft > button > img {
+.submitButtom > img {
     height: 50%;
     width: 20%;
     object-fit: contain;

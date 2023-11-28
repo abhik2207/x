@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.css';
 import qrCode from './LoginQRcode.png';
 import loginLogo from './LoginLogo.png';
-// import GoogleLogin from '@leecheuk/react-google-login';
-// import { GoogleLogin } from '@leecheuk/react-google-login';
 
 const Login = () => {
+    const [credentials, setCredentials] = useState({ phoneNumber: '', password: '' });
+
+    function onChange(e) {
+        setCredentials({ ...credentials, [e.target.name]: e.target.value });
+    }
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        const x = await credentials;
+        console.log(x);
+        const response = await fetch('http://localhost:3005/login', {
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({phoneNumber:credentials.phoneNumber, password:credentials.password})
+        });
+        const jsonResponse = await response.json();
+        console.log(jsonResponse);
+        if(jsonResponse.success){
+            localStorage.setItem('convoverseUserLoginId', jsonResponse.responseData._id);
+            localStorage.setItem('convoverseUserLoginName', jsonResponse.responseData.name);
+        }
+    }
+
     return (
         <div className='loginPage'>
             <div className="loginTop">
@@ -21,15 +44,14 @@ const Login = () => {
                 <div className="cardLeft">
                     <h1>LOG IN</h1>
                     <div className="line"></div>
-                    <form action="">
+                    <form onSubmit={handleSubmit}>
                         <label htmlFor="phoneNumber">Phone Number</label> <br />
-                        <input type="text" name="phoneNumber" id="phoneNumber" placeholder='989162XXXX' /><br />
+                        <input type="text" name="phoneNumber" id="phoneNumber" value={credentials.phoneNumber} onChange={onChange} placeholder='989162XXXX' /><br />
                         <label htmlFor="password">Password</label> <br />
-                        <input type="password" name="password" id="password" placeholder='password' />
-                    </form>
-
-                    <button><img src={loginLogo} alt="Google logo" />Log in</button>
+                        <input type="password" name="password" id="password" value={credentials.password} onChange={onChange} placeholder='password' />
+                        <button type='submit' className='submitButtom'><img src={loginLogo} alt="Google logo" />Log in</button>
                     <a href='/' className='signupText'>Not a user? Sign up</a>
+                    </form>
                 </div>
 
                 <div className="cardRight">

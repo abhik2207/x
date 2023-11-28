@@ -23,7 +23,7 @@ services:
   db:
     image: mongodb/mongodb-community-server
     volumes:
-      - ./db:/data/db
+      - db-data:/data/db
     ports:
       - 27017:27017
     networks:
@@ -36,3 +36,6 @@ networks:
       driver: default
       config:
         - subnet: 69.0.69.0/24
+
+volumes:
+  db-data:

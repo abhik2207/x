@@ -30,6 +30,7 @@
     align-items: center;
     gap: 0.5vmax;
     height: 100%;
+    width: 80%;
 }
 
 .profilePic {
@@ -48,6 +49,27 @@
 .profileName > p {
     font-weight: 800;
     font-size: 1.3vmax;
+}
+
+.logoutDiv {
+    /* background-color: red; */
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.logoutButton {
+    border: none;
+    outline: none;
+    padding: 0.4vmax;
+    background-color: #ffffff9d;
+    color: #006454;
+    font-size: 1vmax;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .searchDiv {

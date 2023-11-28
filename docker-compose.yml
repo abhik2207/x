@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  client:
+    stdin_open: true
+    tty: true
+    build:
+      context: ./client
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      web-plate:
+        ipv4_address: "69.0.69.10"
+  api:
+    build: 
+      context: ./server
+    restart: always
+    ports:
+      - 3005:3005
+    networks:
+      web-plate:
+        ipv4_address: '69.0.69.15'
+  db:
+    image: mongodb/mongodb-community-server
+    volumes:
+      - ./db:/data/db
+    ports:
+      - 27017:27017
+    networks:
+      web-plate:
+        ipv4_address: '69.0.69.25'
+
+networks:
+  web-plate:
+    ipam:
+      driver: default
+      config:
+        - subnet: 69.0.69.0/24

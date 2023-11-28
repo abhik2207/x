@@ -1,5 +1,5 @@
 import { sendError } from "./index.js";
-import * as yup from "yup";
+import yup from "yup";
 
 export const validateCreateUser = async (req, res, next) => {
     const schema = yup.object().shape({

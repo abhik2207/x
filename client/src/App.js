@@ -15,15 +15,14 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path='/' element={
+        <Route path='/' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/home' element={
           <div className='app'>
             <ContactList setChatPlaceHolder={setChatPlaceHolder} setSelectedChat={setSelectedChat} />
             {chatPlaceHolder ? (<ChatSectionPlaceholder />) : (<Conversation selectedChat={selectedChat} />)}
             {/* <Conversation /> */}
-          </div>
-        } />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/login' element={<Login />} />
+          </div>} />
       </Routes>
     </>
 

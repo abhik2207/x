@@ -4,9 +4,9 @@ import yup from "yup";
 export const validateCreateUser = async (req, res, next) => {
     const schema = yup.object().shape({
         phoneNumber: yup.number().required(),
-        name: yup.string().required(),
-        password: yup.string().required(),
-        profilePic: yup.string()
+        name: yup.string().min(3, 'Name must be at least 3 characters!').required(),
+        password: yup.string().min(8, 'Password must be at least 8 characters!').required(),
+        profilePic: yup.string().url()
     });
     await validate(schema, req.body, res, next);
 };

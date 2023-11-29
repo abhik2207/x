@@ -14,17 +14,20 @@ const App = () => {
   const [chatPlaceHolder, setChatPlaceHolder] = useState(true);
   const [selectedChat, setSelectedChat] = useState();
 
+  const HomePage =()=>{
+    <div className='app'>
+        <ContactList setChatPlaceHolder={setChatPlaceHolder} setSelectedChat={setSelectedChat} />
+        {chatPlaceHolder ? (<ChatSectionPlaceholder />) : (<Conversation selectedChat={selectedChat} />)}
+        {/* <Conversation /> */}
+    </div>
+  }
+  
   return (
     <>
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path='/home' element={
-          <div className='app'>
-            <ContactList setChatPlaceHolder={setChatPlaceHolder} setSelectedChat={setSelectedChat} />
-            {chatPlaceHolder ? (<ChatSectionPlaceholder />) : (<Conversation selectedChat={selectedChat} />)}
-            {/* <Conversation /> */}
-          </div>} />
+        <Route path='/home' element={<HomePage/>} />
       </Routes>
       <ToastContainer />
     </>

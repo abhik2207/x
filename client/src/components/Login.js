@@ -15,8 +15,8 @@ const Login = () => {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        const x = await credentials;
-        console.log(x);
+        // const creds = await credentials;
+        // console.log(creds);
         const response = await fetch('http://localhost:3005/login', {
             method: 'POST',
             headers: {
@@ -74,9 +74,9 @@ const Login = () => {
                     <div className="line"></div>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="phoneNumber">Phone Number</label> <br />
-                        <input type="text" name="phoneNumber" id="phoneNumber" value={credentials.phoneNumber} onChange={onChange} placeholder='Ex: 989162XXXX' required /><br />
+                        <input type="text" name="phoneNumber" id="phoneNumber" value={credentials.phoneNumber} onChange={onChange} placeholder='Ex: 989162XXXX' minLength="10" maxLength="12" required /><br />
                         <label htmlFor="password">Password</label> <br />
-                        <input type="password" name="password" id="password" value={credentials.password} onChange={onChange} placeholder='Enter your password' required />
+                        <input type="password" name="password" id="password" value={credentials.password} onChange={onChange} placeholder='Enter your password' minLength="8" maxLength="32" required />
                         <button type='submit' className='loginButton'><img src={loginLogo} alt="Google logo" />Log in</button>
                         <Link to='/signup' className='signupText'>Not a user? Sign up</Link>
                     </form>

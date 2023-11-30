@@ -8,7 +8,7 @@
 }
 
 .loginTop {
-    background-color: #00977e;
+    background: linear-gradient(to bottom right, #022423, #004136, #00725f, #00977e);
     height: 40%;
     width: 100%;
     padding: 5vmax;

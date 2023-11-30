@@ -29,6 +29,7 @@ export const createChannel = async (req, res) => {
 
 export const getChannels = async (req, res) => {
     const requestData = req.query;
+
     const channelList = await ChannelModel.findData({
         "channelUsers._id": requestData.userId
     });

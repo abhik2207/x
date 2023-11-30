@@ -69,7 +69,7 @@ const Signup = () => {
                     <div className="line"></div>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="phoneNumber">Phone Number</label> <br />
-                        <input type="text" name="phoneNumber" id="phoneNumber" value={credentials.phoneNumber} onChange={onChange} placeholder='Ex: 989162XXXX' required /><br />
+                        <input type="text" name="phoneNumber" id="phoneNumber" value={credentials.phoneNumber} onChange={onChange} placeholder='Ex: 989162XXXX' minLength="10" maxLength="12" required /><br />
                         <label htmlFor="name">Name</label> <br />
                         <input type="text" name="name" id="name" value={credentials.name} onChange={onChange} placeholder='Ex: George Smith' required /><br />
                         <label htmlFor="password">Password</label> <br />

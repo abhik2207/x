@@ -15,6 +15,10 @@ const App = () => {
   const [selectedChat, setSelectedChat] = useState();
   const [userLogged, setUserLogged] = useState(false);
 
+  if(localStorage.getItem('convoverseUserLoginId')){
+    setUserLogged(true);
+  }
+
   const HomePage =()=>{
     if(userLogged){
       return(

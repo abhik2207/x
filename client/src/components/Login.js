@@ -15,8 +15,6 @@ const Login = () => {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        // const creds = await credentials;
-        // console.log(creds);
         const response = await fetch('http://localhost:3005/login', {
             method: 'POST',
             headers: {
@@ -25,7 +23,6 @@ const Login = () => {
             body: JSON.stringify({ phoneNumber: credentials.phoneNumber, password: credentials.password, profilePic: credentials.profilePic })
         });
         const jsonResponse = await response.json();
-        console.log(jsonResponse);
         if (jsonResponse.success) {
             localStorage.setItem('convoverseUserLoginId', jsonResponse.responseData._id);
             localStorage.setItem('convoverseUserLoginName', jsonResponse.responseData.name);

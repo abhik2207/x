@@ -5,7 +5,25 @@
     justify-content: center;
     height: 100%;
     width: 70%;
-    background-color: #f8f9fb;
+    background-color: rgb(255, 252, 252);
+}
+
+.imageDiv {
+    padding: 1vmax;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageDiv > img {
+    width: 12vmax;
+    transition: 0.5s;
+}
+
+.imageDiv > img:hover {
+    cursor: grab;
+    transform: scale(1.1);
 }
 
 .placeholderContainer > h1 {

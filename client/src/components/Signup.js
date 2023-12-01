@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import './Signup.css';
 import qrCode from './LoginQRcode.png';
 import signupLogo from './SignupLogo.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const Signup = () => {
     const [credentials, setCredentials] = useState({ phoneNumber: '', name: '', password: '', profilePic:'' });
+    const navigate = useNavigate();
 
     function onChange(e) {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -14,8 +15,6 @@ const Signup = () => {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        const x = await credentials;
-        console.log(x);
         const response = await fetch('http://localhost:3005/user', {
             method: 'POST',
             headers: {
@@ -24,7 +23,6 @@ const Signup = () => {
             body: JSON.stringify({ phoneNumber: credentials.phoneNumber, name: credentials.name, password: credentials.password, profilePic: credentials.profilePic })
         });
         const jsonResponse = await response.json();
-        console.log(jsonResponse);
         setCredentials({ phoneNumber: '', name: '', password: '', profilePic:'' });
         if (jsonResponse.success) {
             toast.success(jsonResponse.message, {
@@ -37,6 +35,7 @@ const Signup = () => {
                 progress: undefined,
                 theme: "colored",
             });
+            navigate('/');
         }
         else {
             toast.warning(jsonResponse.responseData[0].message, {

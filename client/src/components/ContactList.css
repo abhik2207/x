@@ -52,7 +52,6 @@
 }
 
 .logoutDiv {
-    /* background-color: red; */
     height: 100%;
     width: 20%;
     display: flex;
@@ -69,7 +68,16 @@
     font-size: 1vmax;
     font-weight: 700;
     border-radius: 10px;
-    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logoutButton:hover {
+    cursor: grab;
+    background-color: rgba(255, 255, 255, 0.76);
+}
+
+.logoutButton:active {
+    cursor: grabbing;
 }
 
 .searchDiv {

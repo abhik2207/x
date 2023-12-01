@@ -15,6 +15,13 @@
     font-size: 0.9vmax;
     border-radius: 6px;
     font-weight: 500;
+    transition: 0.3s;
+}
+
+.msg:hover {
+    cursor: grab;
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px #000;
 }
 
 .sentMessage {

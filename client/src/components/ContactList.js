@@ -14,6 +14,7 @@ const ContactList = (props) => {
         localStorage.removeItem('convoverseUserLoginId');
         localStorage.removeItem('convoverseUserLoginName');
         localStorage.removeItem('convoverseUserLoginProfilePic');
+        setChatPlaceHolder(true);
         navigate('/');
     }
 
@@ -26,31 +27,7 @@ const ContactList = (props) => {
             }
         });
         const jsonResponse = await response.json();
-        console.log(jsonResponse.responseData);
         setUserInfo(jsonResponse.responseData);
-
-        // const contacts = jsonResponse.responseData.map(channel => {
-        //     if(loggedInUserId === channel.channelUsers[0]._id){
-        //         return channel.channelUsers[1];
-        //     }
-        //     else{
-        //         return channel.channelUsers[0];
-        //     }
-        // });
-        // console.log('-- ALL CONTACTS --');
-        // console.log(contacts);
-
-        // const messages = jsonResponse.responseData.map(channel => {
-        //     const length = channel.messages.length;
-        //     return channel.messages[length-1];
-        // });
-        // console.log('-- ALL MESSAGES --')
-        // console.log(messages);
-
-        // const everything = [contacts, messages];
-        // console.log('-- EVERYTHING --');
-        // console.log(everything);
-        // setUserInfo(everything);
     }
 
     useEffect(() => {

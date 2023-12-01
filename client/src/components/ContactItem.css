@@ -11,7 +11,11 @@
 
 .contactItemContainer:hover {
     background-color: #00977e;
-    cursor: pointer;
+    cursor: grab;
+}
+
+.contactItemContainer:active {
+    cursor: grabbing;
 }
 
 .contactItemContainer:hover .chatContent > h1 {

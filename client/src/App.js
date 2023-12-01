@@ -13,9 +13,7 @@ import { Route, Routes } from 'react-router-dom';
 const App = () => {
   const [ chatPlaceHolder, setChatPlaceHolder ] = useState(true);
   const [ selectedChat, setSelectedChat ] = useState();
-
   
-
   return (
     <>
       <Routes>

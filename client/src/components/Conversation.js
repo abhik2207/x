@@ -58,6 +58,9 @@ const Conversation = (props) => {
             });
             setMessageText('');
             setPickerVisible(false);
+            if (selectedChat.messages.length !== 0) {
+                refreshMessages();
+            }
         }
     }
 
@@ -86,7 +89,7 @@ const Conversation = (props) => {
         fetchAllMessages();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedChat]);
-    
+
     useEffect(() => {
         refreshMessages();
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -115,9 +118,11 @@ const Conversation = (props) => {
             </div>
 
             <div className="chatSection" style={conversationWallpaperStyling}>
-                {messageList.map((msg) =>
-                    <Message key={msg._id} messageContent={msg.message} senderIsMe={msg.senderID === localStorage.getItem('convoverseUserLoginId')} />
-                )}
+                {
+                    messageList.map((msg) =>
+                        <Message key={msg._id} messageContent={msg.message} senderIsMe={msg.senderID === localStorage.getItem('convoverseUserLoginId')} />
+                    )
+                }
             </div>
 
             <div className="sendMessageDiv">

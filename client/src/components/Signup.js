@@ -5,14 +5,18 @@ import signupLogo from './SignupLogo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
+// Functional component representing the signup page
 const Signup = () => {
+    // State to manage user credentials
     const [credentials, setCredentials] = useState({ phoneNumber: '', name: '', password: '', profilePic:'' });
     const navigate = useNavigate();
 
+    // Event handler for input changes
     function onChange(e) {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
     }
 
+    // Async function to handle form submission
     async function handleSubmit(e) {
         e.preventDefault();
         const response = await fetch('http://localhost:3005/user', {
@@ -24,7 +28,10 @@ const Signup = () => {
         });
         const jsonResponse = await response.json();
         setCredentials({ phoneNumber: '', name: '', password: '', profilePic:'' });
+
+        // Handling the response from the server
         if (jsonResponse.success) {
+            // Displaying a success toast message and navigating to the login page
             toast.success(jsonResponse.message, {
                 position: "bottom-right",
                 autoClose: 2000,
@@ -35,9 +42,11 @@ const Signup = () => {
                 progress: undefined,
                 theme: "colored",
             });
+            // Navigating back to login page
             navigate('/');
         }
         else {
+            // Displaying a warning toast message if there are validation errors
             toast.warning(jsonResponse.responseData[0].message, {
                 position: "bottom-right",
                 autoClose: 2000,
@@ -76,6 +85,8 @@ const Signup = () => {
                         <label htmlFor="profilePic">Profile Pic</label> <br />
                         <input type="text" name="profilePic" id="profilePic" value={credentials.profilePic} onChange={onChange} placeholder='URL to Profile Pic' required />
                         <button type='submit' className='signupButton'><img src={signupLogo} alt="Google logo" />Sign up</button>
+
+                        {/* Link to navigate to the login page */}
                         <Link to='/' className='loginText'>Already a user? Log in</Link>
                     </form>
 

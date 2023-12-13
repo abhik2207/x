@@ -2,6 +2,7 @@ import React from 'react';
 import './ChatSectionPlaceholder.css';
 import placeholderImage from './ChatSectionPlaceholderImage.png';
 
+// Functional component for displaying a placeholder in the chat section
 const ChatSectionPlaceholder = () => {
     return (
         <div className='placeholderContainer'>

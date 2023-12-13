@@ -10,21 +10,31 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import { Route, Routes } from 'react-router-dom';
 
+// Main App component
 const App = () => {
+  // State to manage the display of ChatSectionPlaceholder and selected chat
   const [ chatPlaceHolder, setChatPlaceHolder ] = useState(true);
   const [ selectedChat, setSelectedChat ] = useState();
   
   return (
     <>
       <Routes>
+        {/* Route for the login page */}
         <Route path='/' element={<Login />} />
+
+        {/* Route for the signup page */}
         <Route path='/signup' element={<Signup />} />
+
+        {/* Route for the home page */}
         <Route path='/home' element={
           <div className='app'>
+            {/* ContactList component */}
             <ContactList setChatPlaceHolder={setChatPlaceHolder} setSelectedChat={setSelectedChat} />
+
+            {/* Conditional rendering based on 'chatPlaceHolder' state */}
             {chatPlaceHolder ? (<ChatSectionPlaceholder />) : (<Conversation selectedChat={selectedChat} />)}
-            {/* <Conversation /> */}
-          </div>} />
+          </div>
+        } />
       </Routes>
       <ToastContainer />
     </>

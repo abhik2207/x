@@ -5,14 +5,18 @@ import loginLogo from './LoginLogo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
+// Functional component representing the login page
 const Login = () => {
+    // State to manage user credentials
     const [credentials, setCredentials] = useState({ phoneNumber: '', password: '', profilePic: '' });
     const navigate = useNavigate();
 
+    // Event handler for input changes
     function onChange(e) {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
     }
 
+    // Async function to handle form submission
     async function handleSubmit(e) {
         e.preventDefault();
         const response = await fetch('http://localhost:3005/login', {
@@ -23,12 +27,17 @@ const Login = () => {
             body: JSON.stringify({ phoneNumber: credentials.phoneNumber, password: credentials.password, profilePic: credentials.profilePic })
         });
         const jsonResponse = await response.json();
+        // Handling the response from the server
         if (jsonResponse.success) {
             localStorage.setItem('convoverseUserLoginId', jsonResponse.responseData._id);
             localStorage.setItem('convoverseUserLoginName', jsonResponse.responseData.name);
             localStorage.setItem('convoverseUserLoginProfilePic', jsonResponse.responseData.profilePic);
+
+            // Navigating to home page and setting fields back to empty
             setCredentials({ phoneNumber: '', password: '', profilePic: '' });
             navigate('/home');
+
+            // Displaying a success toast message
             toast.success(jsonResponse.message, {
                 position: "bottom-right",
                 autoClose: 2000,
@@ -41,6 +50,7 @@ const Login = () => {
             });
         }
         else {
+            // Displaying an error toast message
             toast.error(jsonResponse.message, {
                 position: "bottom-right",
                 autoClose: 2000,
@@ -75,6 +85,8 @@ const Login = () => {
                         <label htmlFor="password">Password</label> <br />
                         <input type="password" name="password" id="password" value={credentials.password} onChange={onChange} placeholder='Enter your password' minLength="8" maxLength="32" required />
                         <button type='submit' className='loginButton'><img src={loginLogo} alt="Google logo" />Log in</button>
+
+                        {/* Link to navigate to the signup page */}
                         <Link to='/signup' className='signupText'>Not a user? Sign up</Link>
                     </form>
                 </div>

@@ -1,6 +1,7 @@
 import { sendError } from "./index.js";
 import * as yup from "yup";
 
+// Validation middleware for creating a user
 export const validateCreateUser = async (req, res, next) => {
     const schema = yup.object().shape({
         phoneNumber: yup.number().required(),
@@ -11,6 +12,7 @@ export const validateCreateUser = async (req, res, next) => {
     await validate(schema, req.body, res, next);
 };
 
+// Validation middleware for user login
 export const validateLogin = async (req, res, next) => {
     const schema = yup.object().shape({
         phoneNumber: yup.number().required(),
@@ -19,6 +21,7 @@ export const validateLogin = async (req, res, next) => {
     await validate(schema, req.body, res, next);
 };
 
+// Validation middleware for creating a channel
 export const validateCreateChannel = async (req, res, next) => {
     const schema = yup.object().shape({
         channelUsers: yup.array().of(
@@ -32,6 +35,7 @@ export const validateCreateChannel = async (req, res, next) => {
     await validate(schema, req.body, res, next);
 };
 
+// Validation middleware for getting channels
 export const validateGetChannels = async (req, res, next) => {
     const schema = yup.object().shape({
         userId: yup.string().required()
@@ -39,6 +43,7 @@ export const validateGetChannels = async (req, res, next) => {
     await validate(schema, req.query, res, next);
 };
 
+// Validation middleware for searching for a user
 export const validateSearchUser = async (req, res, next) => {
     const schema = yup.object().shape({
         phone: yup.number().required()
@@ -46,6 +51,7 @@ export const validateSearchUser = async (req, res, next) => {
     await validate(schema, req.query, res, next);
 };
 
+// Validation middleware for adding a message to a channel
 export const validateAddMessage = async (req, res, next) => {
     const schema = yup.object().shape({
         channelId: yup.string().required(),
@@ -57,6 +63,7 @@ export const validateAddMessage = async (req, res, next) => {
     await validate(schema, req.body, res, next);
 };
 
+// Common validation function used by other validation middlewares
 const validate = async (schema, reqData, res, next) => {
     try {
         await schema.validate(reqData, { abortEarly: false });

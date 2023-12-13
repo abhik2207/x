@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
 
-const DB_CONNECTION_URL = 'mongodb://127.0.0.1:27017/test';
+// MongoDB connection URL
+const DB_CONNECTION_URL = 'mongodb://127.0.0.1:27017/convoverseDB';
 
+// Function to connect to the MongoDB database
 const connectDB = () => {
     console.log(`-- Database is trying to connect on ${new Date()} --`);
     const options = {
